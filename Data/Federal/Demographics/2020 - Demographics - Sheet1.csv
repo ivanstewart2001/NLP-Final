@@ -1,0 +1,22 @@
+SEX,Men,48,45,53
+,Women,52,57,42
+RACE,White,67,41,58
+,African-American,13,87,12
+,Hispanic,13,65,32
+,Asian,4,61,34
+,Other,4,55,41
+AGE,18-29,17,60,36
+,30-44,23,52,46
+,45-64,36,49,50
+,65 & over,16,45,52
+INCOME,"<$50,000",35,55,44
+,"$50,000-$100,000",39,57,42
+,"$100,000 & over",26,42,54
+UNION HOUSEHOLD,Yes,20,56,40
+,No,80,50,49
+PARTY,Democrat,37,94,5
+,Republican,36,6,94
+,Independent,26,54,41
+POLITICAL PHILOSOPHY,Liberal,24,89,10
+,Moderate,38,64,34
+,Conservative,38,14,85
