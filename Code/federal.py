@@ -53,8 +53,7 @@ for year in general_election_years:
     data = simplify_election_data(year, total_votes_totals, party_totals)
     general_election_data_simplified.append(data)
 
-for i in general_election_data_simplified:
-    print(i, '\n\n')
+print(general_election_data_simplified)
 
 primary_election_file_names = os.listdir(os.path.join(os.path.dirname(__file__), '..', 'Data', 'Federal', 'Primary Election'))
 
