@@ -30,20 +30,20 @@ for city in cityNames:
 
 print(finalData)
 
-############################################################################################################################################
+###########################################################################################################################################
 
-# from openai import OpenAI
+from openai import OpenAI
 
-# client = OpenAI(api_key="")
+client = OpenAI(api_key="")
 
-# prompt = f'Given the following data on the 2022 Ohio Primary Election give 5 insights you can gather: "{finalData}"'
-# response = client.chat.completions.create(
-#     model="gpt-3.5-turbo",  # Use GPT-3.5
-#     messages=[
-#         {"role": "system", "content": prompt}
-#     ],
-#     temperature=1,  # Set temperature to 0 for deterministic output
-# )
-# insights = response.choices[0].message.content
+prompt = f'Given the following data on the 2022 Ohio Primary Election give 3 insights you can gather: "{finalData}"'
+response = client.chat.completions.create(
+    model="gpt-3.5-turbo",  # Use GPT-3.5
+    messages=[
+        {"role": "system", "content": prompt}
+    ],
+    temperature=1,  # Set temperature to 0 for deterministic output
+)
+insights = response.choices[0].message.content
 
-# print(insights)
+print(insights)

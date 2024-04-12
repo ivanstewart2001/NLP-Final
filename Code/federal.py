@@ -53,8 +53,6 @@ for year in general_election_years:
     data = simplify_election_data(year, total_votes_totals, party_totals)
     general_election_data_simplified.append(data)
 
-print(general_election_data_simplified)
-
 primary_election_file_names = os.listdir(os.path.join(os.path.dirname(__file__), '..', 'Data', 'Federal', 'Primary Election'))
 
 primary_election_data_simplified = {}
@@ -79,4 +77,18 @@ for file_name in primary_election_file_names:
     else:
         primary_election_data_simplified[year] = calculate_average_percentage(data['Turnout Rate'])
 
-print(primary_election_data_simplified)
+from openai import OpenAI
+
+client = OpenAI(api_key="")
+
+prompt = f'Given the following data from US general and primary elections from 2000-2020 give 3 insights you can gather: general election data: {general_election_data_simplified} primary election data: "{primary_election_data_simplified}"'
+response = client.chat.completions.create(
+    model="gpt-3.5-turbo",  # Use GPT-3.5
+    messages=[
+        {"role": "system", "content": prompt}
+    ],
+    temperature=1,  # Set temperature to 0 for deterministic output
+)
+insights = response.choices[0].message.content
+
+print(insights)

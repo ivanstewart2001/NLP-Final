@@ -89,4 +89,18 @@ for year in election_years:
     totals = get_totals_for_year(year, election_data)
     election_data_simplified.append({'totals': totals, 'year': year})
 
-print(election_data_simplified)
+from openai import OpenAI
+
+client = OpenAI(api_key="")
+
+prompt = f'Given the following data from US state senate elections from 2000-2020 give 3 insights you can gather: "{election_data_simplified}"'
+response = client.chat.completions.create(
+    model="gpt-3.5-turbo",  # Use GPT-3.5
+    messages=[
+        {"role": "system", "content": prompt}
+    ],
+    temperature=1,  # Set temperature to 0 for deterministic output
+)
+insights = response.choices[0].message.content
+
+print(insights)
